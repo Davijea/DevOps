@@ -20,15 +20,18 @@ jobs:
         with:
           context: simple-api-student-main/
           tags: ${{ secrets.DOCKER_USER }}/api:1.0
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push database
         uses: docker/build-push-action@v3
         with:
           context: docker/
           tags: ${{ secrets.DOCKER_USER }}/postgres:1.0
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Build image and push httpd
         uses: docker/build-push-action@v3
         with:
           context: html/
           tags: ${{ secrets.DOCKER_USER }}/backend:1.0
+          push: ${{ github.ref == 'refs/heads/main' }}
