@@ -45,28 +45,32 @@ networks => Permet de choisir un reseau
 ### Docker-compose:
 version: '3'
 
-services: 
+services:
   david-pg:
     image: david/postgres
     container_name: david-pg
-    ports:
-      - "5432:5432"
     volumes:
       - /home/ubuntu/Documents/docker_volumes/postgres:/var/lib/postgresql/data
     networks:
       - app-network
     environment:
       - POSTGRES_PWD=david
+      - POSTGRES_USER=david
+      - POSTGRES_DB=davidpg
 
   david-api:
     image: david/buildjava2
     container_name: david-api
-    ports:
-      - "8081:8080"
     networks:
       - app-network
     depends_on:
       - david-pg
+    environment:
+      - POSTGRES_PASSWORD=david
+      - POSTGRES_USER=david
+      - POSTGRES_URL=david-pg:5432
+      - POSTGRES_DB=davidpg
+
 
   david-http:
     image: david/buildhtml
@@ -81,6 +85,7 @@ services:
 networks:
   app-network:
     driver: bridge
+
 ## 1-5 Document your publication commands and published images in dockerhub.
 ### Repo backend :
 https://hub.docker.com/r/davijea/backend
