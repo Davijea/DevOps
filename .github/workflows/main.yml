@@ -38,10 +38,20 @@ jobs:
          # relative path to the place where source code with Dockerfile is located
          context: ./simple-api
          # Note: tags has to be all lower-case
-         tags:  ${{secrets.DOCKER_USER}}/tp-devops-simple-api:latest
+         tags:  ${{secrets.DOCKER_USER}}/api:1.0
   
      - name: Build image and push database
-         # DO the same for database
+       uses: docker/build-push-action@v3
+       with:
+         # relative path to the place where source code with Dockerfile is located
+         context: ./simple-api
+         # Note: tags has to be all lower-case
+         tags:  ${{secrets.DOCKER_USER}}/postgres:1.0
   
      - name: Build image and push httpd
-       # DO the same for httpd
+       uses: docker/build-push-action@v3
+       with:
+         # relative path to the place where source code with Dockerfile is located
+         context: ./simple-api
+         # Note: tags has to be all lower-case
+         tags:  ${{secrets.DOCKER_USER}}/backend:1.0
