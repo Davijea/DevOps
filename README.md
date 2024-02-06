@@ -17,7 +17,7 @@ ENV POSTGRES_DB=db \
 Nous avons besoin de different etages pour sequencées les actions effectuées par le conteneur.
 Dans notre cas nous compilons le scrit java avant de l'executer.
 
-FROM maven:3.8.6-amazoncorretto-17 AS myapp-build => Depuis l'image maven:3.8.6-amazoncorretto-17
+FROM maven:3.8.6-amazoncorretto-17 AS myapp-build => Depuis l'image maven:3.8.6-amazoncorretto-17 \
 ENV MYAPP_HOME /opt/myapp => On defini notre environnement de travail sur /opt/myapp
 WORKDIR $MYAPP_HOME => On defini notre variable de travail sur /opt/myapp
 COPY pom.xml . => On copie le pom.xml de la racine d'ou est le dockerfile sur /opt/myapp
