@@ -1,7 +1,10 @@
 name: Build and Push Docker Image CI
 on:
-  push:
-    branches:
+  workflow_run:
+    workflows: ["test-backend"]
+    types:
+      - completed
+    branches: 
       - main
 
 jobs:
