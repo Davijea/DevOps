@@ -23,4 +23,4 @@ jobs:
 
       # enfin, construisez votre application avec la commande la plus récente
       - name: Build and test with Maven
-        run: mvn clean verify --file Calculator-master/pom.xml
+        run: mvn clean verify --file simple-api-student-main/pom.xml
