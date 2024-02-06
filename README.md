@@ -32,43 +32,48 @@ COPY --from=myapp-build $MYAPP_HOME/target/*.jar $MYAPP_HOME/myapp.jar => Recupe
 ENTRYPOINT java -jar myapp.jar => Execution du script java \
 
 ## 1-3 Document docker-compose most important commands. 1-4 Document your docker-compose file.
+### Commandes les plus utiles du docker-compose
+depends_on => Permet de forcer le demarrage d'un conteneur avant un autre
+ports => Permet le mapping de ports
+volumes => Permet le mapping de volumes
+networks => Permet de choisir un reseau
 ### Docker-compose:
 version: '3'
 
-services:  \
-  david-pg: \
-    image: david/postgres \
-    container_name: david-pg \
-    ports: \
-      - "5432:5432" \
-    volumes: \
-      - /home/ubuntu/Documents/docker_volumes/postgres:/var/lib/postgresql/data \
-    networks: \
-      - app-network \
-    environment: \
-      - POSTGRES_PWD=david \
+services: 
+  david-pg:
+    image: david/postgres
+    container_name: david-pg
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/ubuntu/Documents/docker_volumes/postgres:/var/lib/postgresql/data
+    networks:
+      - app-network
+    environment:
+      - POSTGRES_PWD=david
 
-  david-api: \
-    image: david/buildjava2 \
-    container_name: david-api \
-    ports: \
-      - "8081:8080" \
-    networks: \
-      - app-network \
-    depends_on: \
-      - david-pg \
+  david-api:
+    image: david/buildjava2
+    container_name: david-api
+    ports:
+      - "8081:8080"
+    networks:
+      - app-network
+    depends_on:
+      - david-pg
 
-  david-http: \
-    image: david/buildhtml \
-    container_name: david-http \
-    ports: \
-      - "8084:80" \
-    networks: \
-      - app-network \
-    depends_on: \
-      - david-pg \
+  david-http:
+    image: david/buildhtml
+    container_name: david-http
+    ports:
+      - "8084:80"
+    networks:
+      - app-network
+    depends_on:
+      - david-pg
 
-networks: \
-  app-network: \
-    driver: bridge \
+networks:
+  app-network:
+    driver: bridge
 
