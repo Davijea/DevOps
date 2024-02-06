@@ -35,40 +35,40 @@ ENTRYPOINT java -jar myapp.jar => Execution du script java \
 ### Docker-compose:
 version: '3'
 
-services:
-  david-pg:
-    image: david/postgres
-    container_name: david-pg
-    ports:
-      - "5432:5432"
-    volumes:
-      - /home/ubuntu/Documents/docker_volumes/postgres:/var/lib/postgresql/data
-    networks:
-      - app-network
-    environment:
-      - POSTGRES_PWD=david
+services:  \
+  david-pg: \
+    image: david/postgres \
+    container_name: david-pg \
+    ports: \
+      - "5432:5432" \
+    volumes: \
+      - /home/ubuntu/Documents/docker_volumes/postgres:/var/lib/postgresql/data \
+    networks: \
+      - app-network \
+    environment: \
+      - POSTGRES_PWD=david \
 
-  david-api:
-    image: david/buildjava2
-    container_name: david-api
-    ports:
-      - "8081:8080"
-    networks:
-      - app-network
-    depends_on:
-      - david-pg
+  david-api: \
+    image: david/buildjava2 \
+    container_name: david-api \
+    ports: \
+      - "8081:8080" \
+    networks: \
+      - app-network \
+    depends_on: \
+      - david-pg \
 
-  david-http:
-    image: david/buildhtml
-    container_name: david-http
-    ports:
-      - "8084:80"
-    networks:
-      - app-network
-    depends_on:
-      - david-pg
+  david-http: \
+    image: david/buildhtml \
+    container_name: david-http \
+    ports: \
+      - "8084:80" \
+    networks: \
+      - app-network \
+    depends_on: \
+      - david-pg \
 
-networks:
-  app-network:
-    driver: bridge
+networks: \
+  app-network: \
+    driver: bridge \
 
