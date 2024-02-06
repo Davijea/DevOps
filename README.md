@@ -120,3 +120,4 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean verify --file simple-api-student-main/pom.xml #Execution du test à partir du pom.xml
+test
