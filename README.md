@@ -93,3 +93,6 @@ https://hub.docker.com/r/davijea/backend
 https://hub.docker.com/r/davijea/api
 ### Repo BDD :
 https://hub.docker.com/r/davijea/postgres
+
+## What are testcontainers?
+C'est comme une boîte à outils pour les développeurs qui permet de tester les logiciel rapidement. Au lieu de configurer manuellement des bases de données ou d'autres services pour les tests, Testcontainers utilise des conteneurs Docker pour les exécuter automatiquement. Ca rend les tests plus fiables et plus rapides, car ils peuvent être effectués dans un environnement iso-production. De plus, ça permet de détecter les problèmes plus tôt et donc d'augmenter l'efficacité de la CI.
