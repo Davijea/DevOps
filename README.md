@@ -76,4 +76,10 @@ services:
 networks:
   app-network:
     driver: bridge
-
+## 1-5 Document your publication commands and published images in dockerhub.
+### Repo backend :
+https://hub.docker.com/r/davijea/backend
+### Repo API :
+https://hub.docker.com/r/davijea/api
+### Repo BDD :
+https://hub.docker.com/r/davijea/postgres
