@@ -12,6 +12,11 @@ FROM postgres:14.1-alpine
 ENV POSTGRES_DB=db \
    POSTGRES_USER=usr \
    POSTGRES_PASSWORD=pwd
+   
+ENV SQL_SCRIPTS /docker-entrypoint-initdb.d \
+WORKDIR $SQL_SCRIPTS \
+COPY 01-CreateScheme.sql \
+COPY 02-InsertData.sql
 
 ## 1-2 Why do we need a multistage build? And explain each step of this dockerfile.
 Nous avons besoin de different etages pour sequencées les actions effectuées par le conteneur.
