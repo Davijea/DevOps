@@ -94,5 +94,29 @@ https://hub.docker.com/r/davijea/api
 ### Repo BDD :
 https://hub.docker.com/r/davijea/postgres
 
-## What are testcontainers?
+## 2-1 What are testcontainers?
 C'est comme une boîte à outils pour les développeurs qui permet de tester les logiciel rapidement. Au lieu de configurer manuellement des bases de données ou d'autres services pour les tests, Testcontainers utilise des conteneurs Docker pour les exécuter automatiquement. Ca rend les tests plus fiables et plus rapides, car ils peuvent être effectués dans un environnement iso-production. De plus, ça permet de détecter les problèmes plus tôt et donc d'augmenter l'efficacité de la CI.
+
+## 2-2 Document your Github Actions configurations
+name: CI devops 2023
+on:
+  push:
+    branches: #Selection de la branche main et develop
+      - main
+      - develop
+  pull_request:
+
+jobs:
+  test-backend: #version de l'OS
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2.5.0
+
+      - name: Set up JDK 17 #Version du JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+
+      - name: Build and test with Maven
+        run: mvn clean verify --file simple-api-student-main/pom.xml #Execution du test à partir du pom.xml
