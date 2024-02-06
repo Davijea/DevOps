@@ -1,21 +1,25 @@
 name: CI devops 2023
 on:
-  #to begin you want to launch this job in main and develop
+  #pour commencer, vous voulez lancer cette tâche dans main et develop
   push:
-    branches: #TODO 
+    branches:
+      - main
+      - develop
   pull_request:
 
 jobs:
   test-backend: 
     runs-on: ubuntu-22.04
     steps:
-     #checkout your github code using actions/checkout@v2.5.0
+      # récupérer votre code GitHub en utilisant actions/checkout@v2.5.0
       - uses: actions/checkout@v2.5.0
 
-     #do the same with another action (actions/setup-java@v3) that enable to setup jdk 17
+      # faire de même avec une autre action (actions/setup-java@v3) qui permet de configurer JDK 17
       - name: Set up JDK 17
-        #TODO
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
 
-     #finally build your app with the latest command
+      # enfin, construisez votre application avec la commande la plus récente
       - name: Build and test with Maven
-        run: #TODO
+        run: mvn clean verify
