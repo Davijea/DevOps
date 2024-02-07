@@ -1,2 +1,19 @@
 ---
-# tasks file for roles/proxy_handle
+- name: Pull Docker image
+  docker_image:
+    name: davijea/backend
+    tag: 1.0
+    source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: Run backend Docker container
+  docker_container:
+    name: backend-container
+    image: davijea/backend:1.0
+    state: started
+    ports:
+      - "8084:80"
+    network_mode: "app-network"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
