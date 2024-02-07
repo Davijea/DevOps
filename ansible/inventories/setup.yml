@@ -2,6 +2,10 @@ all:
  vars:
    ansible_user: centos
    ansible_ssh_private_key_file: /home/ubuntu/Documents/git_folder/DevOps/ansible/id_rsa
+   postgres_password: "davidpg"
+   postgres_user: "davidpg"
+   postgres_db: "davidpg"
  children:
    prod:
-     hosts: centos@david.jeannin.takima.cloud
+     hosts:
+       david.jeannin.takima.cloud:

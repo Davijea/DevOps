@@ -19,9 +19,9 @@
     volumes:
       - "/home/centos/bdd:/var/lib/postgresql/data"
     env:
-      POSTGRES_PASSWORD: "davidpg"
-      POSTGRES_USER: "davidpg"
-      POSTGRES_DB: "davidpg"
+      POSTGRES_PASSWORD: "{{ postgres_password }}"
+      POSTGRES_USER: "{{ postgres_user }}"
+      POSTGRES_DB: "{{ postgres_db }}"
     network_mode: "app-network"
   vars:
     ansible_python_interpreter: /usr/bin/python3
