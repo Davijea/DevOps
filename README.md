@@ -120,4 +120,18 @@ jobs:
 
       - name: Build and test with Maven
         run: mvn clean verify --file simple-api-student-main/pom.xml #Execution du test à partir du pom.xml
-test
+
+## 3-1 Document your inventory and base commands
+### setup.yml:
+all:
+ vars:
+   ansible_user: centos
+   ansible_ssh_private_key_file: /home/ubuntu/Documents/git_folder/DevOps/ansible/id_rsa //Chemin vers la clef RSA
+ children:
+   prod:
+     hosts: centos@david.jeannin.takima.cloud //Hostname du serveur
+
+### Commandes basiques:
+ansible all -i inventories/setup.yml -m ping => Permet de verifier que le serveur repond correctement (accesible et UP)
+ansible all -i inventories/setup.yml -m setup -a "filter=ansible_distribution*" => Permet de recuperer la version de l'OS serveur
+
