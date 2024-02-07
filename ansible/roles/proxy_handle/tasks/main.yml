@@ -13,7 +13,7 @@
     image: davijea/backend:1.0
     state: started
     ports:
-      - "8084:80"
+      - "80:80"
     network_mode: "app-network"
   vars:
     ansible_python_interpreter: /usr/bin/python3

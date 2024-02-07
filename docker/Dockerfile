@@ -4,7 +4,4 @@ ENV POSTGRES_DB=db \
    POSTGRES_USER=usr \
    POSTGRES_PASSWORD=pwd
    
-ENV SQL_SCRIPTS /docker-entrypoint-initdb.d
-WORKDIR $SQL_SCRIPTS
-COPY 01-CreateScheme.sql .
-COPY 02-InsertData.sql .
+COPY init /docker-entrypoint-initdb.d

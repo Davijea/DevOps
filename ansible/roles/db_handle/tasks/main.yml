@@ -1,3 +1,8 @@
+- name: Create directory
+  file:
+    path: /home/centos/bdd
+    state: directory
+
 - name: Pull Docker image
   docker_image:
     name: davijea/postgres
@@ -9,10 +14,10 @@
 - name: Run Docker container
   docker_container:
     name: david-pg
-    image: davijea/postgres:1.0
+    image: davijea/postgres
     state: started
-    ports:
-      - "5432:5432"
+    volumes:
+      - "/home/centos/bdd:/var/lib/postgresql/data"
     env:
       POSTGRES_PASSWORD: "davidpg"
       POSTGRES_USER: "davidpg"
