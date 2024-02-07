@@ -1,0 +1,14 @@
+# roles/create_network/tasks/main.yml
+
+- name: Check if network already exists
+  docker_network_info:
+    name: app-network
+  register: network_info
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: Create Docker network if it does not exist
+  command: docker network create app-network
+  when: network_info.network | length == 0
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

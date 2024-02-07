@@ -1,0 +1,22 @@
+---
+- name: Pull Docker image
+  docker_image:
+    name: davijea/postgres
+    tag: 1.0
+    source: pull
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: Run Docker container
+  docker_container:
+    name: postgres-container
+    image: davijea/postgres:1.0
+    state: started
+    ports:
+      - "5432:5432"
+    env:
+      POSTGRES_PASSWORD: "david"
+      POSTGRES_USER: "david"
+      POSTGRES_DB: "davidpg"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3

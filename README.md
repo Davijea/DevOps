@@ -134,4 +134,5 @@ all:
 ### Commandes basiques:
 ansible all -i inventories/setup.yml -m ping => Permet de verifier que le serveur repond correctement (accesible et UP)
 ansible all -i inventories/setup.yml -m setup -a "filter=ansible_distribution*" => Permet de recuperer la version de l'OS serveur
+ansible all -i inventories/setup.yml -m shell -a 'systemctl status docker' => Verifier que docker a bien été demarré
 
