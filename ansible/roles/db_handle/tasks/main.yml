@@ -8,14 +8,14 @@
 
 - name: Run Docker container
   docker_container:
-    name: postgres-container
+    name: david-pg
     image: davijea/postgres:1.0
     state: started
     ports:
       - "5432:5432"
     env:
-      POSTGRES_PASSWORD: "david"
-      POSTGRES_USER: "david"
+      POSTGRES_PASSWORD: "davidpg"
+      POSTGRES_USER: "davidpg"
       POSTGRES_DB: "davidpg"
     network_mode: "app-network"
   vars:

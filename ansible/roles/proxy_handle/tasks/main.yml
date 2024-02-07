@@ -9,7 +9,7 @@
 
 - name: Run backend Docker container
   docker_container:
-    name: backend-container
+    name: david-http
     image: davijea/backend:1.0
     state: started
     ports:

@@ -1,6 +1,6 @@
 - name: Pull Docker image
   docker_image:
-    name: davijea/test
+    name: davijea/api
     tag: 1.0
     source: pull
   vars:
@@ -8,12 +8,12 @@
 
 - name: Run api Docker container
   docker_container:
-    name: api-container
-    image: davijea/test:1.0
+    name: david-api
+    image: davijea/api:1.0
     state: started
     env:
-      POSTGRES_PASSWORD: "david"
-      POSTGRES_USER: "david"
+      POSTGRES_PASSWORD: "davidpg"
+      POSTGRES_USER: "davidpg"
       POSTGRES_URL: "david-pg:5432"
       POSTGRES_DB: "davidpg"
     network_mode: "app-network"
