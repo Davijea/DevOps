@@ -136,3 +136,15 @@ ansible all -i inventories/setup.yml -m ping => Permet de verifier que le serveu
 ansible all -i inventories/setup.yml -m setup -a "filter=ansible_distribution*" => Permet de recuperer la version de l'OS serveur
 ansible all -i inventories/setup.yml -m shell -a 'systemctl status docker' => Verifier que docker a bien été demarré
 
+## 3-2 Document your playbook
+Le playbook est composé de 5 rôles
+### docker
+Initialise les configurations nécessaire au lancement de conteneurs Docker
+### create_network
+Cree le réseau inter-conteneur si il n'existe pas(à savoir app-network)
+### db_handle
+Initialise le dossier où est stocké les données, puis lance le conteneur possedant la BDD
+### app_handle
+Lance le conteneur applicatif java
+### proxy_handle
+Lance le conteneur de redirection reverse-proxy
