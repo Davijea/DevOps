@@ -1,0 +1,14 @@
+---
+- name: Front Startup
+  docker_image:
+    name: davijea/frontend:1.0
+    tag: 1.0
+    source: pull
+    ports:
+     - "80:80"
+    network_mode: "app-network"
+    env: 
+     - VUE_APP_API_URL: "{{ VUE_APP_API_URL }}"
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
+

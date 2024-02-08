@@ -546,6 +546,7 @@ SSLRandomSeed connect builtin
 </IfModule>
 
 <VirtualHost *:80>
+ProxyRequests On
 ProxyPreserveHost On
 ProxyPass / http://david-API:8080/
 ProxyPassReverse / http://david-API:8080/

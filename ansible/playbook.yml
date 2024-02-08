@@ -8,4 +8,5 @@
     - db_handle
     - app_handle
     - proxy_handle
+    - front
 
