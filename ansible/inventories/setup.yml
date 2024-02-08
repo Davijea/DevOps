@@ -5,6 +5,7 @@ all:
    postgres_password: "davidpg"
    postgres_user: "davidpg"
    postgres_db: "davidpg"
+   postgres_url: "davidpg-5432"
  children:
    prod:
      hosts:
