@@ -1,2 +1,6 @@
 ---
 # vars file for roles/db_handle
+postgres_password: davidpg
+postgres_user: davidpg
+postgres_db: davidpg
+ostgres_url: davidpg-5432
