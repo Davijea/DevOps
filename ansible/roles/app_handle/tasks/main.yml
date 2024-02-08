@@ -10,6 +10,7 @@
   docker_container:
     name: david-api
     image: davijea/api:1.0
+    recreate: true
     state: started
     env:
       POSTGRES_PASSWORD: "davidpg"

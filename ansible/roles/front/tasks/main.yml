@@ -12,6 +12,7 @@
   docker_container:
     name: frontend-container
     image: davijea/front:1.0
+    recreate: true
     state: started
     ports:
       - "80:80"

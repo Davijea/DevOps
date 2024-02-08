@@ -15,6 +15,7 @@
   docker_container:
     name: david-pg
     image: davijea/postgres
+    recreate: true
     state: started
     volumes:
       - "/home/centos/bdd:/var/lib/postgresql/data"
