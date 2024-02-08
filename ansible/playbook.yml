@@ -3,10 +3,10 @@
   become: true
 
   roles:
-    - docker
-    - create_network
-    - db_handle
-    - app_handle
-    - proxy_handle
+    #- docker
+    #- create_network
+    #- db_handle
+    #- app_handle
+    #- proxy_handle
     - front
 
