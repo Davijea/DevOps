@@ -38,3 +38,10 @@ jobs:
           context: html/
           tags: ${{ secrets.DOCKER_USER }}/backend:1.0
           push: ${{ github.ref == 'refs/heads/main' }}
+
+      - name: Build image and push front
+        uses: docker/build-push-action@v3
+        with:
+          context: devops-front-main/
+          tags: ${{ secrets.DOCKER_USER }}/front:1.0
+          push: ${{ github.ref == 'refs/heads/main' }}
