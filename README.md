@@ -148,3 +148,4 @@ Initialise le dossier où est stocké les données, puis lance le conteneur poss
 Lance le conteneur applicatif java
 ### proxy_handle
 Lance le conteneur de redirection reverse-proxy
+test
